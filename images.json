@@ -1,10 +1,10 @@
 {
   "hero": {
-    "src": "https://github.com/haseeburhr7-bot/ohee/blob/main/images/IMG_2320.JPG",
+    "src": "https://raw.githubusercontent.com/haseeburhr7-bot/ohee/main/images/IMG_2320.JPG",
     "alt": "Sidratul Muntaha Ohee — Hero"
   },
   "about": {
-    "src": "https://github.com/haseeburhr7-bot/ohee/blob/main/images/IMG_2307.JPG",
+    "src": "https://raw.githubusercontent.com/haseeburhr7-bot/ohee/main/images/IMG_2307.JPG",
     "alt": "Sidratul Muntaha Ohee — Portrait"
   },
   "portfolio": [
