@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidratul Muntaha Ohee — Fashion Model & Cosplayer</title>
+<meta name="description" content="Official portfolio of Sidratul Muntaha Ohee, Dhaka-based fashion model and cosplayer. Editorial, commercial, and cosplay work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #111111;
+    --white: #F5F5F5;
+    --gold: #C9A96A;
+    --gold-light: #E8C98A;
+    --pure-white: #ffffff;
+    --mid-gray: #888888;
+    --light-gray: #EBEBEB;
+    --dark-gray: #333333;
+    --ff-display: 'Playfair Display', Georgia, serif;
+    --ff-body: 'Montserrat', sans-serif;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--ff-body);
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    position: fixed; width: 10px; height: 10px;
+    background: var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transition: transform 0.15s var(--ease-out);
+    transform: translate(-50%, -50%);
+  }
+  .cursor-ring {
+    position: fixed; width: 36px; height: 36px;
+    border: 1px solid var(--gold); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transition: transform 0.35s var(--ease-out), width 0.3s, height 0.3s, opacity 0.3s;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-ring.hover { width: 60px; height: 60px; opacity: 0.5; }
+
+  /* Page loader */
+  .loader {
+    position: fixed; inset: 0; background: var(--black);
+    z-index: 9000; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1.5rem;
+    transition: opacity 0.8s var(--ease-out), visibility 0.8s;
+  }
+  .loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+  .loader-name {
+    font-family: var(--ff-display); color: var(--white);
+    font-size: clamp(1.2rem, 3vw, 2rem); letter-spacing: 0.3em;
+    font-weight: 400; opacity: 0; animation: fadeIn 0.8s 0.3s forwards;
+  }
+  .loader-bar-wrap {
+    width: 200px; height: 1px; background: rgba(255,255,255,0.15); overflow: hidden;
+  }
+  .loader-bar {
+    height: 100%; background: var(--gold);
+    animation: loadBar 2s var(--ease-out) forwards;
+  }
+  @keyframes loadBar { from { width: 0; } to { width: 100%; } }
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background 0.4s, padding 0.4s;
+  }
+  nav.scrolled {
+    background: rgba(17,17,17,0.92);
+    backdrop-filter: blur(12px); padding: 1rem 4rem;
+  }
+  .nav-logo {
+    font-family: var(--ff-display); color: var(--white);
+    font-size: 1.1rem; letter-spacing: 0.15em;
+    text-decoration: none; font-weight: 500;
+    opacity: 0; animation: fadeIn 0.8s 2.5s forwards;
+  }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+    opacity: 0; animation: fadeIn 0.8s 2.6s forwards;
+  }
+  .nav-links a {
+    color: var(--white); text-decoration: none;
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 500; position: relative; transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 1px; background: var(--gold); transition: width 0.3s var(--ease-out);
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: none;
+    background: none; border: none;
+  }
+  .nav-hamburger span {
+    display: block; width: 24px; height: 1px; background: var(--white); transition: 0.3s;
+  }
+
+  /* HERO */
+  #hero {
+    height: 100vh; min-height: 600px; position: relative; overflow: hidden;
+    background: var(--black);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; overflow: hidden;
+  }
+  .hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(17,17,17,0.75) 40%, rgba(17,17,17,0.2) 100%);
+  }
+  .hero-img {
+    width: 100%; height: 100%; object-fit: cover;
+    transform: scale(1.05);
+    animation: heroScale 12s var(--ease-out) forwards;
+    filter: grayscale(10%);
+  }
+  @keyframes heroScale { to { transform: scale(1); } }
+
+  .hero-content {
+    position: relative; z-index: 2; padding: 0 4rem;
+    max-width: 700px;
+  }
+  .hero-overline {
+    font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 1.5rem;
+    opacity: 0; animation: slideUp 0.8s 2.2s var(--ease-out) forwards;
+  }
+  .hero-name {
+    font-family: var(--ff-display); color: var(--white);
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    line-height: 1.05; font-weight: 400; font-style: italic;
+    opacity: 0; animation: slideUp 0.9s 2.4s var(--ease-out) forwards;
+  }
+  .hero-name span { font-style: normal; font-weight: 600; }
+  .hero-sub {
+    margin-top: 1.5rem; color: rgba(245,245,245,0.7);
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    opacity: 0; animation: slideUp 0.8s 2.6s var(--ease-out) forwards;
+  }
+  .hero-divider {
+    width: 60px; height: 1px; background: var(--gold); margin: 2rem 0;
+    opacity: 0; animation: slideUp 0.8s 2.7s var(--ease-out) forwards;
+  }
+  .hero-tagline {
+    color: rgba(245,245,245,0.5); font-size: 0.8rem;
+    font-style: italic; font-family: var(--ff-display);
+    opacity: 0; animation: slideUp 0.8s 2.8s var(--ease-out) forwards;
+  }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+  .scroll-indicator {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    z-index: 2; text-align: center;
+    opacity: 0; animation: fadeIn 1s 3.2s forwards;
+  }
+  .scroll-indicator span {
+    display: block; font-size: 0.6rem; letter-spacing: 0.3em;
+    text-transform: uppercase; color: rgba(245,245,245,0.5); margin-bottom: 0.75rem;
+  }
+  .scroll-line {
+    width: 1px; height: 50px; background: rgba(201,169,106,0.4);
+    margin: 0 auto; position: relative; overflow: hidden;
+  }
+  .scroll-line::after {
+    content: ''; position: absolute; top: -50px; left: 0;
+    width: 100%; height: 100%; background: var(--gold);
+    animation: scrollAnim 1.8s infinite var(--ease-out);
+  }
+  @keyframes scrollAnim { from { top: -50px; } to { top: 100%; } }
+
+  /* Sections */
+  section { padding: 8rem 4rem; }
+
+  .section-label {
+    font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: var(--ff-display); font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.1; font-weight: 400;
+  }
+  .section-title em { font-style: italic; color: var(--mid-gray); }
+
+  /* Reveal animations */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ABOUT */
+  #about { background: var(--black); color: var(--white); }
+  .about-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img-wrap::before {
+    content: ''; position: absolute; top: -20px; left: -20px;
+    right: 20px; bottom: 20px; border: 1px solid rgba(201,169,106,0.3); z-index: 0;
+  }
+  .about-img {
+    width: 100%; aspect-ratio: 3/4; object-fit: cover;
+    position: relative; z-index: 1; filter: grayscale(20%);
+    transition: filter 0.5s;
+  }
+  .about-img:hover { filter: grayscale(0%); }
+  .about-text .section-label { color: rgba(201,169,106,0.8); }
+  .about-text .section-title { color: var(--white); margin-bottom: 2rem; }
+  .about-bio {
+    color: rgba(245,245,245,0.65); line-height: 1.9; font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem;
+  }
+  .stat { border-top: 1px solid rgba(201,169,106,0.3); padding-top: 1rem; }
+  .stat-num {
+    font-family: var(--ff-display); font-size: 2rem; color: var(--gold); font-weight: 400;
+  }
+  .stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,245,245,0.4); margin-top: 0.25rem; }
+
+  /* PORTFOLIO */
+  #portfolio { background: var(--white); }
+  .portfolio-inner { max-width: 1400px; margin: 0 auto; }
+  .portfolio-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem;
+  }
+  .filter-tabs { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .filter-tab {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.5rem 1.2rem; border: 1px solid var(--light-gray);
+    background: none; cursor: none; font-family: var(--ff-body);
+    color: var(--mid-gray); transition: all 0.3s; font-weight: 500;
+  }
+  .filter-tab.active, .filter-tab:hover {
+    background: var(--black); color: var(--white); border-color: var(--black);
+  }
+  .masonry-grid {
+    columns: 3; column-gap: 1rem;
+  }
+  .masonry-item {
+    break-inside: avoid; margin-bottom: 1rem;
+    position: relative; overflow: hidden; cursor: none;
+  }
+  .masonry-item img {
+    width: 100%; display: block;
+    transition: transform 0.7s var(--ease-out), filter 0.5s;
+    filter: grayscale(15%);
+  }
+  .masonry-item:hover img { transform: scale(1.04); filter: grayscale(0%); }
+  .masonry-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(17,17,17,0.8) 0%, transparent 50%);
+    opacity: 0; transition: opacity 0.4s; display: flex; align-items: flex-end; padding: 1.5rem;
+  }
+  .masonry-item:hover .masonry-overlay { opacity: 1; }
+  .masonry-overlay-text { color: var(--white); }
+  .masonry-overlay-cat { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); }
+  .masonry-overlay-title { font-family: var(--ff-display); font-size: 1rem; margin-top: 0.25rem; }
+  .zoom-icon {
+    position: absolute; top: 1rem; right: 1rem;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s; backdrop-filter: blur(4px);
+  }
+  .masonry-item:hover .zoom-icon { opacity: 1; }
+  .zoom-icon svg { width: 16px; height: 16px; stroke: white; fill: none; }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 2000;
+    display: none; align-items: center; justify-content: center;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-img {
+    max-height: 90vh; max-width: 90vw; object-fit: contain;
+    animation: lbFade 0.3s var(--ease-out);
+  }
+  @keyframes lbFade { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+  .lightbox-close {
+    position: absolute; top: 2rem; right: 2rem;
+    width: 44px; height: 44px; cursor: none;
+    background: none; border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%; color: white; font-size: 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .lightbox-close:hover { background: var(--gold); border-color: var(--gold); }
+  .lightbox-info {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    text-align: center; color: rgba(255,255,255,0.6);
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+
+  /* FEATURED WORK */
+  #featured { background: var(--black); color: var(--white); padding: 8rem 4rem; }
+  .featured-inner { max-width: 1200px; margin: 0 auto; }
+  .featured-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 4rem;
+  }
+  .featured-card {
+    position: relative; overflow: hidden; cursor: none;
+  }
+  .featured-card:first-child { grid-row: span 2; }
+  .featured-img {
+    width: 100%; height: 100%; min-height: 300px; object-fit: cover;
+    display: block; transition: transform 0.7s var(--ease-out), filter 0.5s;
+    filter: grayscale(25%);
+  }
+  .featured-card:hover .featured-img { transform: scale(1.04); filter: grayscale(0%); }
+  .featured-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 2rem 1.5rem 1.5rem;
+    background: linear-gradient(to top, rgba(17,17,17,0.9) 0%, transparent 100%);
+    transform: translateY(10px); transition: transform 0.4s;
+  }
+  .featured-card:hover .featured-label { transform: translateY(0); }
+  .featured-brand {
+    font-family: var(--ff-display); font-size: 1.3rem; color: var(--white); font-style: italic;
+  }
+  .featured-type { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-top: 0.3rem; }
+
+  /* COSPLAY */
+  #cosplay { background: #0a0a0a; padding: 8rem 4rem; }
+  .cosplay-inner { max-width: 1400px; margin: 0 auto; }
+  .cosplay-header { text-align: center; margin-bottom: 5rem; }
+  .cosplay-header .section-title { color: var(--white); }
+  .cosplay-header .section-label { justify-content: center; display: flex; }
+  .cosplay-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+  }
+  .cosplay-item {
+    position: relative; overflow: hidden; cursor: none;
+    aspect-ratio: 2/3;
+  }
+  .cosplay-item:nth-child(1) { grid-column: span 2; aspect-ratio: auto; min-height: 500px; }
+  .cosplay-img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.8s var(--ease-out); filter: saturate(0.6) contrast(1.1);
+  }
+  .cosplay-item:hover .cosplay-img { transform: scale(1.06); filter: saturate(1.2) contrast(1.1); }
+  .cosplay-reveal {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(201,169,106,0.15) 0%, transparent 60%),
+                linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.5s;
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 2rem;
+  }
+  .cosplay-item:hover .cosplay-reveal { opacity: 1; }
+  .cosplay-char { font-family: var(--ff-display); color: var(--white); font-size: 1.5rem; font-style: italic; }
+  .cosplay-series { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-top: 0.3rem; }
+
+  /* DIGITALS */
+  #digitals { background: var(--white); }
+  .digitals-inner { max-width: 1200px; margin: 0 auto; }
+  .digitals-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 4rem;
+  }
+  .digital-card { position: relative; overflow: hidden; cursor: none; }
+  .digital-card img {
+    width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;
+    transition: transform 0.6s var(--ease-out); filter: grayscale(15%);
+  }
+  .digital-card:hover img { transform: scale(1.03); filter: grayscale(0%); }
+  .digital-caption {
+    text-align: center; margin-top: 0.75rem;
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray);
+  }
+
+  /* MEASUREMENTS */
+  #measurements { background: var(--black); padding: 8rem 4rem; }
+  .measurements-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .measurements-inner .section-title { color: var(--white); margin-bottom: 0.5rem; }
+  .measurements-inner .section-label { display: inline-block; margin-bottom: 1rem; }
+  .comp-card {
+    margin-top: 4rem; border: 1px solid rgba(201,169,106,0.25);
+    padding: 3rem; position: relative;
+  }
+  .comp-card::before, .comp-card::after {
+    content: ''; position: absolute;
+    width: 20px; height: 20px; border-color: var(--gold); border-style: solid;
+  }
+  .comp-card::before { top: -1px; left: -1px; border-width: 1px 0 0 1px; }
+  .comp-card::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+  .comp-name {
+    font-family: var(--ff-display); font-size: 1.8rem; color: var(--white);
+    font-style: italic; margin-bottom: 0.5rem;
+  }
+  .comp-title { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); }
+  .measurements-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: rgba(201,169,106,0.15); margin-top: 3rem;
+  }
+  .measure-item {
+    background: var(--black); padding: 2rem 1rem; transition: background 0.3s;
+  }
+  .measure-item:hover { background: #1a1a1a; }
+  .measure-val {
+    font-family: var(--ff-display); font-size: 1.8rem; color: var(--gold); font-weight: 400;
+  }
+  .measure-key {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(245,245,245,0.4); margin-top: 0.4rem;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--white); }
+  .contact-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .contact-info .section-title { margin-bottom: 1.5rem; }
+  .contact-desc { color: var(--mid-gray); font-size: 0.85rem; line-height: 1.8; margin-bottom: 2.5rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 1.2rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--black);
+    font-size: 0.8rem; letter-spacing: 0.05em; transition: color 0.3s;
+  }
+  .contact-link:hover { color: var(--gold); }
+  .contact-icon {
+    width: 40px; height: 40px; border: 1px solid var(--light-gray); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .contact-link:hover .contact-icon { background: var(--gold); border-color: var(--gold); }
+  .contact-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; transition: stroke 0.3s; }
+  .contact-link:hover .contact-icon svg { stroke: white; }
+  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .form-group { position: relative; }
+  .form-input {
+    width: 100%; background: none; border: none; border-bottom: 1px solid var(--light-gray);
+    padding: 0.75rem 0; font-family: var(--ff-body); font-size: 0.85rem; color: var(--black);
+    transition: border-color 0.3s; outline: none; resize: none; cursor: none;
+  }
+  .form-input:focus { border-color: var(--gold); }
+  .form-label {
+    position: absolute; top: 0.75rem; left: 0; font-size: 0.7rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--mid-gray); pointer-events: none;
+    transition: all 0.3s;
+  }
+  .form-input:focus ~ .form-label,
+  .form-input:not(:placeholder-shown) ~ .form-label {
+    top: -1rem; font-size: 0.6rem; color: var(--gold);
+  }
+  .btn-submit {
+    margin-top: 0.5rem; padding: 1rem 2.5rem; background: var(--black); color: var(--white);
+    border: 1px solid var(--black); font-family: var(--ff-body);
+    font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+    cursor: none; transition: background 0.3s, color 0.3s; align-self: flex-start; font-weight: 500;
+  }
+  .btn-submit:hover { background: var(--gold); border-color: var(--gold); color: var(--black); }
+
+  /* FOOTER */
+  footer {
+    background: var(--black); color: rgba(245,245,245,0.35);
+    padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-brand { font-family: var(--ff-display); font-size: 0.9rem; color: var(--white); font-style: italic; }
+
+  /* PLACEHOLDER IMAGES — gradient based */
+  .img-placeholder {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    position: relative; overflow: hidden;
+  }
+  .img-placeholder::before {
+    content: attr(data-label); position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--ff-display); font-style: italic;
+    color: rgba(201,169,106,0.4); font-size: 0.9rem; letter-spacing: 0.1em;
+  }
+
+  /* Mobile nav overlay */
+  .nav-overlay {
+    position: fixed; inset: 0; background: var(--black); z-index: 90;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 2.5rem;
+    opacity: 0; pointer-events: none; transition: opacity 0.4s;
+  }
+  .nav-overlay.open { opacity: 1; pointer-events: all; }
+  .nav-overlay a {
+    font-family: var(--ff-display); font-size: 2rem; color: var(--white);
+    text-decoration: none; font-style: italic; transition: color 0.3s;
+  }
+  .nav-overlay a:hover { color: var(--gold); }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 1024px) {
+    .masonry-grid { columns: 2; }
+    .digitals-grid { grid-template-columns: repeat(2, 1fr); }
+    .measurements-grid { grid-template-columns: repeat(2, 1fr); }
+    .featured-grid { grid-template-columns: 1fr; }
+    .featured-card:first-child { grid-row: auto; }
+    .cosplay-grid { grid-template-columns: 1fr 1fr; }
+    .cosplay-item:nth-child(1) { grid-column: span 2; }
+  }
+  @media (max-width: 768px) {
+    section, #featured, #cosplay, #measurements, #contact { padding: 5rem 1.5rem; }
+    nav { padding: 1.2rem 1.5rem; }
+    nav.scrolled { padding: 0.9rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .hero-content { padding: 0 1.5rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .masonry-grid { columns: 1; }
+    .cosplay-grid { grid-template-columns: 1fr; }
+    .cosplay-item:nth-child(1) { grid-column: span 1; min-height: 300px; }
+    .digitals-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; text-align: center; }
+    .about-img-wrap::before { display: none; }
+    .measurements-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .masonry-grid { columns: 1; }
+    .digitals-grid { grid-template-columns: 1fr 1fr; }
+    .featured-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-name">Sidratul Muntaha Ohee</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+</div>
+
+<!-- Nav -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">S · M · O</a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#featured">Editorial</a></li>
+    <li><a href="#cosplay">Cosplay</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#measurements">Measurements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="nav-overlay" id="navOverlay">
+  <a href="#hero" onclick="closeNav()">Home</a>
+  <a href="#portfolio" onclick="closeNav()">Portfolio</a>
+  <a href="#featured" onclick="closeNav()">Editorial</a>
+  <a href="#cosplay" onclick="closeNav()">Cosplay</a>
+  <a href="#about" onclick="closeNav()">About</a>
+  <a href="#measurements" onclick="closeNav()">Measurements</a>
+  <a href="#contact" onclick="closeNav()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg">
+    <!-- Populated by JSON -->
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a2e 0%,#2d1f3d 30%,#0f0f0f 60%,#1a1209 100%);position:absolute;inset:0;" id="heroBgFallback"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 65% 50%,rgba(201,169,106,0.06) 0%,transparent 60%);"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-overline">Official Portfolio — Dhaka, Bangladesh</p>
+    <h1 class="hero-name"><span>Sidratul</span><br>Muntaha<br><em>Ohee</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Fashion Model &nbsp;·&nbsp; Cosplayer &nbsp;·&nbsp; Creative Storyteller</p>
+    <p class="hero-tagline" style="margin-top:1.5rem;">"Where editorial meets character."</p>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-img-wrap reveal" id="aboutImgWrap">
+      <div class="img-placeholder" data-label="Portrait" style="width:100%;aspect-ratio:3/4;"></div>
+    </div>
+    <div class="about-text">
+      <p class="section-label reveal">About</p>
+      <h2 class="section-title reveal reveal-delay-1">The Face<br><em>Behind the Lens</em></h2>
+      <p class="about-bio reveal reveal-delay-2">
+        Sidratul Muntaha Ohee is a Dhaka-based fashion model and cosplayer with over two years of modeling experience and seven years of cosplay performance. She has collaborated with emerging fashion brands and photographers, bringing creativity, character expression, and confidence to every project. Her work combines fashion editorial aesthetics with detailed character transformations through cosplay.
+      </p>
+      <div class="about-stats reveal reveal-delay-3">
+        <div class="stat">
+          <div class="stat-num">2+</div>
+          <div class="stat-label">Years Modeling</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">7</div>
+          <div class="stat-label">Years Cosplay</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Collaborations</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Dhaka</div>
+          <div class="stat-label">Based In</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-inner">
+    <div class="portfolio-header reveal">
+      <div>
+        <p class="section-label">Portfolio</p>
+        <h2 class="section-title">Selected<br><em>Works</em></h2>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="editorial">Editorial</button>
+        <button class="filter-tab" data-filter="fashion">Fashion</button>
+        <button class="filter-tab" data-filter="commercial">Commercial</button>
+        <button class="filter-tab" data-filter="cosplay">Cosplay</button>
+      </div>
+    </div>
+
+    <div class="masonry-grid" id="masonryGrid">
+      <!-- Populated dynamically from images.json -->
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lbImg" src="" alt="" class="lightbox-img" style="display:none;">
+  <div class="img-placeholder" id="lbPlaceholder" style="width:70vw;max-width:800px;height:80vh;"></div>
+  <div class="lightbox-info" id="lbInfo"></div>
+</div>
+
+<!-- FEATURED WORK -->
+<section id="featured">
+  <div class="featured-inner">
+    <div class="reveal">
+      <p class="section-label" style="color:rgba(201,169,106,0.8);">Featured</p>
+      <h2 class="section-title" style="color:var(--white);">Brand<br><em>Collaborations</em></h2>
+    </div>
+    <div class="featured-grid" id="featuredGrid">
+      <!-- Populated dynamically from images.json -->
+    </div>
+  </div>
+</section>
+
+<!-- COSPLAY SHOWCASE -->
+<section id="cosplay">
+  <div class="cosplay-inner">
+    <div class="cosplay-header reveal">
+      <p class="section-label">Cosplay Showcase</p>
+      <h2 class="section-title">Character<br><em>Transformations</em></h2>
+      <p style="color:rgba(245,245,245,0.45);font-size:0.8rem;margin-top:1rem;max-width:500px;margin-left:auto;margin-right:auto;">Seven years of bringing fictional worlds to life through detailed costume design, makeup artistry, and performance.</p>
+    </div>
+    <div class="cosplay-grid reveal" id="cosplayGrid">
+      <!-- Populated dynamically from images.json -->
+    </div>
+  </div>
+</section>
+
+<!-- MODEL DIGITALS -->
+<section id="digitals">
+  <div class="digitals-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:1rem;">
+      <p class="section-label" style="display:inline-block;">Model Digitals</p>
+      <h2 class="section-title">Agency<br><em>Polaroids</em></h2>
+    </div>
+    <div class="digitals-grid" id="digitalsGrid">
+      <!-- Populated dynamically from images.json -->
+    </div>
+  </div>
+</section>
+
+<!-- MEASUREMENTS -->
+<section id="measurements">
+  <div class="measurements-inner">
+    <p class="section-label reveal">Model Measurements</p>
+    <h2 class="section-title reveal reveal-delay-1" style="color:var(--white);">Statistics &<br><em>Details</em></h2>
+
+    <div class="comp-card reveal reveal-delay-2">
+      <div class="comp-name">Sidratul Muntaha Ohee</div>
+      <div class="comp-title">Fashion Model &amp; Cosplayer — Dhaka, Bangladesh</div>
+
+      <div class="measurements-grid" style="margin-top:3rem;">
+        <div class="measure-item">
+          <div class="measure-val">5'2"</div>
+          <div class="measure-key">Height</div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-val">36"</div>
+          <div class="measure-key">Bust</div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-val">24"</div>
+          <div class="measure-key">Waist</div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-val">40"</div>
+          <div class="measure-key">Hips</div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-val">US 4</div>
+          <div class="measure-key">Shoes</div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-val">US 6</div>
+          <div class="measure-key">Dress</div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-val" style="font-size:1.4rem;">Black</div>
+          <div class="measure-key">Hair</div>
+        </div>
+        <div class="measure-item">
+          <div class="measure-val" style="font-size:1.4rem;">Brown</div>
+          <div class="measure-key">Eyes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <p class="section-label">Work With Me</p>
+      <h2 class="section-title">Let's Create<br><em>Something</em></h2>
+      <p class="contact-desc">Open to editorial shoots, brand collaborations, commercial campaigns, cosplay events, and creative projects. Based at Dhaka University.</p>
+      <div class="contact-links">
+        <a href="mailto:ohee@example.com" class="contact-link">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          Email / Bookings
+        </a>
+        <a href="https://instagram.com/" target="_blank" class="contact-link">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          Instagram
+        </a>
+        <a href="https://facebook.com/" target="_blank" class="contact-link">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </div>
+          Facebook
+        </a>
+        <a href="#" class="contact-link">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          Dhaka University, Bangladesh
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form reveal reveal-delay-2">
+      <div class="form-group">
+        <input type="text" class="form-input" id="name" placeholder=" " autocomplete="off">
+        <label class="form-label" for="name">Your Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-input" id="email" placeholder=" " autocomplete="off">
+        <label class="form-label" for="email">Email Address</label>
+      </div>
+      <div class="form-group">
+        <textarea class="form-input" id="message" rows="4" placeholder=" "></textarea>
+        <label class="form-label" for="message">Your Message</label>
+      </div>
+      <button class="btn-submit" onclick="handleSubmit()">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Sidratul Muntaha Ohee</div>
+    <div style="margin-top:0.4rem;">Fashion Model & Cosplayer · Dhaka, Bangladesh</div>
+  </div>
+  <div>© 2024 All Rights Reserved</div>
+</footer>
+
+<script>
+  // ================================================================
+  // CONFIGURATION — set this to your images.json URL on GitHub
+  // e.g. https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/images.json
+  // ================================================================
+  const IMAGES_JSON_URL = 'images.json';
+
+  // ================================================================
+  // PLACEHOLDER GRADIENTS — used when a photo slot has no src yet
+  // ================================================================
+  const GRADIENTS = {
+    editorial:  'linear-gradient(160deg,#1a1a1a,#2a2510)',
+    fashion:    'linear-gradient(135deg,#1c1208,#2d2010)',
+    cosplay:    'linear-gradient(150deg,#0a0a1a,#1a0a2a)',
+    commercial: 'linear-gradient(120deg,#111,#222)',
+    featured:   'linear-gradient(155deg,#1a1208,#0a0a0a)',
+    digital:    'linear-gradient(145deg,#ece8e0,#d8d4cc)',
+    hero:       'linear-gradient(135deg,#1a1a2e 0%,#2d1f3d 30%,#0f0f0f 60%,#1a1209 100%)',
+    about:      'linear-gradient(145deg,#1a1a1a,#2a2510)',
+    cosplayBg:  'linear-gradient(150deg,#0a0520,#1a0a2a)',
+  };
+
+  // ---- Helper: build an <img> or a placeholder div ----
+  function buildImage(src, alt, extraStyle = '', extraClass = '') {
+    if (src) {
+      return `<img src="${src}" alt="${alt}" class="hero-img ${extraClass}" style="${extraStyle}" loading="lazy">`;
+    }
+    return `<div class="img-placeholder" data-label="${alt}" style="${extraStyle}"></div>`;
+  }
+
+  // ---- Render: Hero ----
+  function renderHero(data) {
+    const fallback = document.getElementById('heroBgFallback');
+    if (data.src) {
+      const img = document.createElement('img');
+      img.src = data.src;
+      img.alt = data.alt;
+      img.className = 'hero-img';
+      img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.05);animation:heroScale 12s cubic-bezier(0.16,1,0.3,1) forwards;filter:grayscale(10%)';
+      document.getElementById('heroBg').insertBefore(img, fallback);
+      fallback.style.display = 'none';
+    }
+  }
+
+  // ---- Render: About ----
+  function renderAbout(data) {
+    const wrap = document.getElementById('aboutImgWrap');
+    if (data.src) {
+      wrap.innerHTML = `<img src="${data.src}" alt="${data.alt}" class="about-img">`;
+    }
+    // else keep existing placeholder
+  }
+
+  // ---- Render: Portfolio masonry ----
+  function renderPortfolio(items) {
+    const grid = document.getElementById('masonryGrid');
+    const catColors = { editorial: GRADIENTS.editorial, fashion: GRADIENTS.fashion, cosplay: GRADIENTS.cosplay, commercial: GRADIENTS.commercial };
+    grid.innerHTML = items.map(item => {
+      const inner = item.src
+        ? `<img src="${item.src}" alt="${item.alt}" style="width:100%;display:block;transition:transform 0.7s cubic-bezier(0.16,1,0.3,1),filter 0.5s;filter:grayscale(15%);" loading="lazy">`
+        : `<div class="img-placeholder" data-label="${item.title}" style="height:320px;background:${catColors[item.category] || GRADIENTS.editorial};"></div>`;
+      return `
+        <div class="masonry-item" data-cat="${item.category}" onclick="openLightbox('${item.title}','${item.category}','${item.src || ''}')">
+          ${inner}
+          <div class="masonry-overlay">
+            <div class="masonry-overlay-text">
+              <div class="masonry-overlay-cat">${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</div>
+              <div class="masonry-overlay-title">${item.title}</div>
+            </div>
+          </div>
+          <div class="zoom-icon"><svg viewBox="0 0 24 24" stroke="white" fill="none" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
+        </div>`;
+    }).join('');
+    initFilter();
+    reObserve();
+    reBindCursor();
+  }
+
+  // ---- Render: Featured ----
+  function renderFeatured(items) {
+    const grid = document.getElementById('featuredGrid');
+    grid.innerHTML = items.map((item, i) => {
+      const inner = item.src
+        ? `<img src="${item.src}" alt="${item.alt}" class="featured-img" loading="lazy">`
+        : `<div class="img-placeholder featured-img" data-label="${item.brand}" style="width:100%;${item.large ? 'height:600px' : 'height:290px'};background:${GRADIENTS.featured};"></div>`;
+      const delay = i > 0 ? `reveal-delay-${i}` : '';
+      return `
+        <div class="featured-card reveal ${delay}">
+          ${inner}
+          <div class="featured-label">
+            <div class="featured-brand">${item.brand}</div>
+            <div class="featured-type">${item.type}</div>
+          </div>
+        </div>`;
+    }).join('');
+    reObserve();
+    reBindCursor();
+  }
+
+  // ---- Render: Cosplay ----
+  function renderCosplay(items) {
+    const grid = document.getElementById('cosplayGrid');
+    const bgList = ['linear-gradient(150deg,#0a0520,#1a0a2a,#05100a)', 'linear-gradient(135deg,#150515,#0a0520)', 'linear-gradient(140deg,#1a1005,#0a0520)', 'linear-gradient(160deg,#0f0010,#1a0520)', 'linear-gradient(150deg,#050a1a,#0f1a10)'];
+    grid.innerHTML = items.map((item, i) => {
+      const isLarge = item.large;
+      const style = isLarge ? '' : 'style="aspect-ratio:2/3;"';
+      const imgStyle = `width:100%;height:100%;object-fit:cover;transition:transform 0.8s cubic-bezier(0.16,1,0.3,1);filter:saturate(0.6) contrast(1.1);display:block;`;
+      const inner = item.src
+        ? `<img src="${item.src}" alt="${item.alt}" style="${imgStyle}" loading="lazy">`
+        : `<div class="img-placeholder" data-label="${item.character}" style="width:100%;height:100%;background:${bgList[i % bgList.length]};"></div>`;
+      return `
+        <div class="cosplay-item" ${style}>
+          ${inner}
+          <div class="cosplay-reveal">
+            <div class="cosplay-char">${item.character}</div>
+            <div class="cosplay-series">${item.series}</div>
+          </div>
+        </div>`;
+    }).join('');
+    reBindCursor();
+  }
+
+  // ---- Render: Digitals ----
+  function renderDigitals(items) {
+    const grid = document.getElementById('digitalsGrid');
+    const bgList = ['linear-gradient(145deg,#f0ede8,#ddd8d0)', 'linear-gradient(145deg,#ece8e0,#d8d4cc)', 'linear-gradient(145deg,#edeae4,#e0ddd6)', 'linear-gradient(145deg,#ede8e2,#ddd8d2)'];
+    grid.innerHTML = items.map((item, i) => {
+      const delay = i > 0 ? `reveal-delay-${i}` : '';
+      const inner = item.src
+        ? `<img src="${item.src}" alt="${item.alt}" style="width:100%;aspect-ratio:2/3;object-fit:cover;display:block;" loading="lazy">`
+        : `<div class="img-placeholder" data-label="${item.caption}" style="aspect-ratio:2/3;background:${bgList[i % bgList.length]};"></div>`;
+      return `
+        <div class="digital-card reveal ${delay}">
+          ${inner}
+          <div class="digital-caption">${item.caption}</div>
+        </div>`;
+    }).join('');
+    reObserve();
+    reBindCursor();
+  }
+
+  // ---- Load JSON and populate ----
+  async function loadImages() {
+    try {
+      const res = await fetch(IMAGES_JSON_URL);
+      if (!res.ok) throw new Error('JSON not found');
+      const data = await res.json();
+      if (data.hero)     renderHero(data.hero);
+      if (data.about)    renderAbout(data.about);
+      if (data.portfolio) renderPortfolio(data.portfolio);
+      if (data.featured) renderFeatured(data.featured);
+      if (data.cosplay)  renderCosplay(data.cosplay);
+      if (data.digitals) renderDigitals(data.digitals);
+    } catch (e) {
+      // JSON not available (local file:// or missing) — render placeholders from fallback data
+      renderPortfolio(FALLBACK.portfolio);
+      renderFeatured(FALLBACK.featured);
+      renderCosplay(FALLBACK.cosplay);
+      renderDigitals(FALLBACK.digitals);
+    }
+  }
+
+  // ---- Fallback data (all src empty = placeholders shown) ----
+  const FALLBACK = {
+    portfolio: [
+      { id:'p1', src:'', alt:'Monochrome Study I',  category:'editorial',  title:'Monochrome Study I' },
+      { id:'p2', src:'', alt:'Gold Hour',            category:'fashion',    title:'Gold Hour' },
+      { id:'p3', src:'', alt:'Character Arch',       category:'cosplay',    title:'Character Arch' },
+      { id:'p4', src:'', alt:'6 Season Campaign',    category:'commercial', title:'6 Season Campaign' },
+      { id:'p5', src:'', alt:'Noir Silhouette',      category:'editorial',  title:'Noir Silhouette' },
+      { id:'p6', src:'', alt:'Theo Lookbook',        category:'fashion',    title:'Theo Lookbook' },
+      { id:'p7', src:'', alt:'Transformation II',    category:'cosplay',    title:'Transformation II' },
+      { id:'p8', src:'', alt:'Brand Campaign II',    category:'commercial', title:'Brand Campaign II' },
+      { id:'p9', src:'', alt:'Golden Ratio',         category:'editorial',  title:'Golden Ratio' },
+    ],
+    featured: [
+      { id:'f1', src:'', alt:'6 Season Brand', brand:'6 Season Brand',    type:'Fashion Campaign · 2024', large:true },
+      { id:'f2', src:'', alt:'Theo Brand',     brand:'Theo Brand',        type:'Lookbook · 2024',        large:false },
+      { id:'f3', src:'', alt:'Editorial',      brand:'Editorial Campaign', type:'Photography · 2023',     large:false },
+    ],
+    cosplay: [
+      { id:'c1', src:'', alt:'The Hero',    character:'The Hero',    series:'Signature Series · 2024', large:true },
+      { id:'c2', src:'', alt:'Midnight Arc', character:'Midnight Arc', series:'Fantasy Series · 2023',  large:false },
+      { id:'c3', src:'', alt:'Golden Court', character:'Golden Court', series:'Anime Series · 2023',    large:false },
+      { id:'c4', src:'', alt:'Villain Arc',  character:'Villain Arc',  series:'Drama Series · 2022',    large:false },
+      { id:'c5', src:'', alt:'Elven Queen',  character:'Elven Queen',  series:'Fantasy · 2022',         large:false },
+    ],
+    digitals: [
+      { id:'d1', src:'', alt:'Natural Face',   caption:'Natural Face' },
+      { id:'d2', src:'', alt:'Full Body',      caption:'Full Body' },
+      { id:'d3', src:'', alt:'Side Profile',   caption:'Side Profile' },
+      { id:'d4', src:'', alt:'Minimal Makeup', caption:'Minimal Makeup' },
+    ],
+  };
+
+  // ================================================================
+  // CORE UI
+  // ================================================================
+
+  // ----- Loader -----
+  window.addEventListener('load', () => {
+    loadImages();
+    setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 2200);
+  });
+
+  // ----- Custom Cursor -----
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  });
+  function animateRing() {
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  function reBindCursor() {
+    document.querySelectorAll('a, button, .masonry-item, .cosplay-item, .filter-tab, .digital-card, .featured-card').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+    });
+  }
+  reBindCursor();
+
+  // ----- Nav scroll -----
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+  // ----- Mobile Nav -----
+  const hamburger = document.getElementById('hamburger');
+  const navOverlay = document.getElementById('navOverlay');
+  let navOpen = false;
+  hamburger.addEventListener('click', () => {
+    navOpen = !navOpen;
+    navOverlay.classList.toggle('open', navOpen);
+    const spans = hamburger.querySelectorAll('span');
+    if (navOpen) {
+      spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+    } else { spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; }); }
+  });
+  function closeNav() {
+    navOpen = false; navOverlay.classList.remove('open');
+    hamburger.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }
+
+  // ----- Reveal on scroll -----
+  let revealObserver;
+  function reObserve() {
+    if (revealObserver) revealObserver.disconnect();
+    revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  }
+  reObserve();
+
+  // ----- Portfolio Filter -----
+  function initFilter() {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        document.querySelectorAll('.masonry-item').forEach(item => {
+          const show = filter === 'all' || item.dataset.cat === filter;
+          item.style.opacity = show ? '1' : '0.15';
+          item.style.transition = 'opacity 0.4s';
+          item.style.pointerEvents = show ? '' : 'none';
+        });
+      });
+    });
+  }
+
+  // ----- Lightbox -----
+  function openLightbox(title, cat, src) {
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbPlaceholder = document.getElementById('lbPlaceholder');
+    const lbInfo = document.getElementById('lbInfo');
+    if (src) {
+      lbImg.src = src; lbImg.alt = title;
+      lbImg.style.display = 'block';
+      lbPlaceholder.style.display = 'none';
+    } else {
+      const colors = { editorial: GRADIENTS.editorial, fashion: GRADIENTS.fashion, cosplay: GRADIENTS.cosplay, commercial: GRADIENTS.commercial };
+      lbPlaceholder.style.background = colors[cat] || '#111';
+      lbPlaceholder.setAttribute('data-label', title);
+      lbImg.style.display = 'none';
+      lbPlaceholder.style.display = 'block';
+    }
+    lbInfo.textContent = title;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(e) {
+    if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox({ target: document.getElementById('lightbox') }); });
+
+  // ----- Contact form -----
+  function handleSubmit() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const msg = document.getElementById('message').value;
+    if (!name || !email || !msg) { alert('Please fill in all fields.'); return; }
+    alert('Thank you, ' + name + '! Your message has been sent.');
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('message').value = '';
+  }
+</script>
+</body>
+</html>
