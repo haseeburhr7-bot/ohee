@@ -1,0 +1,190 @@
+{
+  "hero": {
+    "src": "https://github.com/haseeburhr7-bot/ohee/blob/main/images/IMG_2320.JPG",
+    "alt": "Sidratul Muntaha Ohee — Hero"
+  },
+  "about": {
+    "src": "https://github.com/haseeburhr7-bot/ohee/blob/main/images/IMG_2307.JPG",
+    "alt": "Sidratul Muntaha Ohee — Portrait"
+  },
+  "portfolio": [
+    {
+      "id": "p1",
+      "src": "",
+      "alt": "Monochrome Study I",
+      "category": "editorial",
+      "title": "Monochrome Study I",
+      "hidden": false
+    },
+    {
+      "id": "p2",
+      "src": "",
+      "alt": "Gold Hour",
+      "category": "fashion",
+      "title": "Gold Hour",
+      "hidden": false
+    },
+    {
+      "id": "p3",
+      "src": "",
+      "alt": "Character Arch",
+      "category": "cosplay",
+      "title": "Character Arch",
+      "hidden": false
+    },
+    {
+      "id": "p4",
+      "src": "",
+      "alt": "6 Season Campaign",
+      "category": "commercial",
+      "title": "6 Season Campaign",
+      "hidden": false
+    },
+    {
+      "id": "p5",
+      "src": "",
+      "alt": "Noir Silhouette",
+      "category": "editorial",
+      "title": "Noir Silhouette",
+      "hidden": false
+    },
+    {
+      "id": "p6",
+      "src": "",
+      "alt": "Theo Lookbook",
+      "category": "fashion",
+      "title": "Theo Lookbook",
+      "hidden": false
+    },
+    {
+      "id": "p7",
+      "src": "",
+      "alt": "Transformation II",
+      "category": "cosplay",
+      "title": "Transformation II",
+      "hidden": false
+    },
+    {
+      "id": "p8",
+      "src": "",
+      "alt": "Brand Campaign II",
+      "category": "commercial",
+      "title": "Brand Campaign II",
+      "hidden": false
+    },
+    {
+      "id": "p9",
+      "src": "",
+      "alt": "Golden Ratio",
+      "category": "editorial",
+      "title": "Golden Ratio",
+      "hidden": false
+    }
+  ],
+  "featured": [
+    {
+      "id": "f1",
+      "src": "",
+      "alt": "6 Season Brand Campaign",
+      "brand": "6 Season Brand",
+      "type": "Fashion Campaign · 2024",
+      "large": true,
+      "hidden": false
+    },
+    {
+      "id": "f2",
+      "src": "",
+      "alt": "Theo Brand Lookbook",
+      "brand": "Theo Brand",
+      "type": "Lookbook · 2024",
+      "large": false,
+      "hidden": false
+    },
+    {
+      "id": "f3",
+      "src": "",
+      "alt": "Editorial Campaign",
+      "brand": "Editorial Campaign",
+      "type": "Photography · 2023",
+      "large": false,
+      "hidden": false
+    }
+  ],
+  "cosplay": [
+    {
+      "id": "c1",
+      "src": "",
+      "alt": "The Hero",
+      "character": "The Hero",
+      "series": "Signature Series · 2024",
+      "large": true,
+      "hidden": false
+    },
+    {
+      "id": "c2",
+      "src": "",
+      "alt": "Midnight Arc",
+      "character": "Midnight Arc",
+      "series": "Fantasy Series · 2023",
+      "large": false,
+      "hidden": false
+    },
+    {
+      "id": "c3",
+      "src": "",
+      "alt": "Golden Court",
+      "character": "Golden Court",
+      "series": "Anime Series · 2023",
+      "large": false,
+      "hidden": false
+    },
+    {
+      "id": "c4",
+      "src": "",
+      "alt": "Villain Arc",
+      "character": "Villain Arc",
+      "series": "Drama Series · 2022",
+      "large": false,
+      "hidden": false
+    },
+    {
+      "id": "c5",
+      "src": "",
+      "alt": "Elven Queen",
+      "character": "Elven Queen",
+      "series": "Fantasy · 2022",
+      "large": false,
+      "hidden": false
+    }
+  ],
+  "digitals": [
+    {
+      "id": "d1",
+      "src": "",
+      "alt": "Natural Face",
+      "caption": "Natural Face",
+      "hidden": false
+    },
+    {
+      "id": "d2",
+      "src": "",
+      "alt": "Full Body",
+      "caption": "Full Body",
+      "hidden": false
+    },
+    {
+      "id": "d3",
+      "src": "",
+      "alt": "Side Profile",
+      "caption": "Side Profile",
+      "hidden": false
+    },
+    {
+      "id": "d4",
+      "src": "",
+      "alt": "Minimal Makeup",
+      "caption": "Minimal Makeup",
+      "hidden": false
+    }
+  ]
+}
